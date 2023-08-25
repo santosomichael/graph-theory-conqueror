@@ -54,3 +54,15 @@ for node in node_list:
     node.next_node_list = temp_next_node_list
 
 # print_node_list(node_list)
+
+def dfs(node):
+    if node.number in visited_list: return    
+    visited_list.append(node.number)
+
+    for next_node in node.next_node_list:
+        dfs(next_node)
+
+visited_list = []
+start_node = 1
+dfs(node_list[start_node - 1])
+print(visited_list)
