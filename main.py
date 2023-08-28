@@ -1,8 +1,3 @@
-class Node:
-  def __init__(self, number, next_node_list):
-    self.number = number
-    self.next_node_list = next_node_list
-
 edge_list = [
     (1, 2),
     (2, 1), (2, 4), (2, 5),
@@ -20,6 +15,12 @@ edge_list = [
 ]
 
 all_edge_set = set(edge[0] for edge in edge_list)
+node_list = []
+
+class Node:
+  def __init__(self, number, next_node_list):
+    self.number = number
+    self.next_node_list = next_node_list
 
 def print_node_list(node_list):
     for node in node_list:
@@ -27,7 +28,6 @@ def print_node_list(node_list):
         print(f"Next   : {node.next_node_list}\n")
 
 # fill the node_list with the tree node
-node_list = []
 now_index = 0
 for edge in all_edge_set:
     temp_next_node_list = []
@@ -55,14 +55,6 @@ for node in node_list:
 
 # print_node_list(node_list)
 
-def dfs(node):
-    if node.number in visited_list: return    
-    visited_list.append(node.number)
 
-    for next_node in node.next_node_list:
-        dfs(next_node)
-
-visited_list = []
-start_node = 1
-dfs(node_list[start_node - 1])
-print(visited_list)
+def get_node_list():
+    return node_list
